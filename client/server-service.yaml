@@ -1,0 +1,16 @@
+FROM node:lts-alpine
+
+RUN apk update && \
+    apk add --no-cache mongodb
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 5000 27017
+
+CMD ["sh", "-c", "mongod & npm start"]
