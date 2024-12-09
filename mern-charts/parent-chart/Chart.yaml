@@ -6,7 +6,7 @@ version: 0.1.0
 dependencies:
   - name: client
     version: "1.0.0"
-    repository: file://./client
+    repository: mern-charts/client
   - name: server
     version: "1.0.0"
     repository: file://./server
