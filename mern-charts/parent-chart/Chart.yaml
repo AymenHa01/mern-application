@@ -1,0 +1,11 @@
+apiVersion: v2
+name: parent-chart
+description: A Helm chart for Kubernetes
+version: 0.1.0
+dependencies:
+  - name: client-chart
+    version: 1.0.0
+    repository: "C:\Users\aymen\Desktop\mern-app-ci-cd-main\mern-charts\client"
+  - name: mongodb-chart
+    version: 1.0.0
+    repository: "file://../mongodb-chart"
