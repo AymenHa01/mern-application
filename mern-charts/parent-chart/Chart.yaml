@@ -6,10 +6,10 @@ version: 0.1.0
 dependencies:
   - name: client
     version: "1.0.0"
-    repository: mern-charts/client
+    repository: ../client
   - name: server
     version: "1.0.0"
-    repository: mern-charts/server
+    repository: ../server
   - name: mongodb
     version: "1.0.0"
-    repository: mern-charts/mongodb
+    repository: ../mongodb
