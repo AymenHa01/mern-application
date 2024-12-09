@@ -9,7 +9,7 @@ dependencies:
     repository: mern-charts/client
   - name: server
     version: "1.0.0"
-    repository: file://./server
+    repository: mern-charts/server
   - name: mongodb
     version: "1.0.0"
-    repository: file://./mongodb
+    repository: mern-charts/mongodb
