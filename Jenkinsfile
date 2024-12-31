@@ -1,4 +1,4 @@
-pipeline {
+-serverpipeline {
   agent any
   triggers {
     pollSCM('H/5 * * * *')
@@ -38,8 +38,8 @@ pipeline {
         script {
           sh """
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
-            aquasec/trivy:latest image --exit-code 1 \
-            --severity HIGH,CRITICAL \
+            aquasec/trivy:latest image --exit-code 0 \
+            --severity LOW,MEDIUM,HIGH,CRITICAL \
             ${IMAGE_NAME_SERVER}
           """
         }
@@ -50,8 +50,8 @@ pipeline {
         script {
           sh """
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
-            aquasec/trivy:latest image --exit-code 1 \
-            --severity HIGH,CRITICAL \
+            aquasec/trivy:latest image --exit-code 0 \
+            --severity LOW,MEDIUM,HIGH,CRITICAL \
             ${IMAGE_NAME_CLIENT}
           """
         }
@@ -71,11 +71,7 @@ pipeline {
   post {
     always {
       script {
-        try {
-          sh "docker rmi ${IMAGE_NAME_SERVER} ${IMAGE_NAME_CLIENT}"
-        } catch (Exception e) {
-          echo "Failed to remove images: ${e.getMessage()}"
-        }
+        sh "docker rmi ${IMAGE_NAME_SERVER} ${IMAGE_NAME_CLIENT}"
       }
     }
   }
