@@ -5,15 +5,14 @@ pipeline {
   }
   environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-   IMAGE_NAME_SERVER = 'aymen023/mern-server'
-   IMAGE_NAME_CLIENT = 'aymen023/mern-client'
+    IMAGE_NAME_SERVER = 'aymen023/mern-server'
+    IMAGE_NAME_CLIENT = 'aymen023/mern-client'
   }
   stages {
     stage('Checkout') {
       steps {
         git branch: 'main',
             url: 'https://github.com/AymenHa01/mern-application.git'
-            
       }
     }
     stage('Build Server Image') {
