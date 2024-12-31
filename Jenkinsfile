@@ -13,7 +13,7 @@ pipeline {
       steps {
         git branch: 'main',
             url: 'https://github.com/AymenHa01/mern-application.git',
-            credentialsId: 'Gitlab_ssh'
+            
       }
     }
     stage('Build Server Image') {
