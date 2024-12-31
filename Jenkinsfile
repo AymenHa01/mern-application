@@ -12,7 +12,7 @@ pipeline {
     stage('Checkout') {
       steps {
         git branch: 'main',
-            url: 'https://github.com/AymenHa01/mern-application.git',
+            url: 'https://github.com/AymenHa01/mern-application.git'
             
       }
     }
