@@ -5,15 +5,15 @@ pipeline {
   }
   environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-    IMAGE_NAME_SERVER = 'sidiahmedhbb/mern-app-server'
-    IMAGE_NAME_CLIENT = 'sidiahmedhbb/mern-app-client'
+    IMAGE_NAME_SERVER = 'aymen023/app-server'
+    IMAGE_NAME_CLIENT = 'aymen023/app-client'
   }
   stages {
     stage('Checkout') {
       steps {
         git branch: 'main',
-            url: 'git@github.com:SidiahmedHABIB/mern-app-ci-cd.git',
-            credentialsId: 'Gitlab_ssh'
+            url: 'https://github.com/AymenHa01/mern-application.git',
+            
       }
     }
     stage('Build Server Image') {
