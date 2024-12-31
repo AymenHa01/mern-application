@@ -1,12 +1,12 @@
-pipeline {
+-serverpipeline {
   agent any
   triggers {
     pollSCM('H/5 * * * *')
   }
   environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-    IMAGE_NAME_SERVER = 'aymen023/app-server'
-    IMAGE_NAME_CLIENT = 'aymen023/app-client'
+    IMAGE_NAME_SERVER = 'aymen023/mern-server'
+    IMAGE_NAME_CLIENT = 'aymen023/mern-client'
   }
   stages {
     stage('Checkout') {
