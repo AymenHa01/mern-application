@@ -70,9 +70,11 @@ pipeline {
   }
   post {
     always {
-      script {
-        // Access environment variables explicitly
-        sh "docker rmi ${env.IMAGE_NAME_SERVER} ${env.IMAGE_NAME_CLIENT}"
+      node {
+        script {
+          // Access environment variables explicitly
+          sh "docker rmi ${env.IMAGE_NAME_SERVER} ${env.IMAGE_NAME_CLIENT}"
+        }
       }
     }
   }
