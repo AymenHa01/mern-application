@@ -5,7 +5,7 @@ pipeline {
   }
   
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub.')
    IMAGE_NAME_SERVER = 'aymen023/mern-server'
    IMAGE_NAME_CLIENT = 'aymen023/mern-client'
   }
