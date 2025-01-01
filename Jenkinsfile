@@ -3,10 +3,11 @@ pipeline {
   triggers {
     pollSCM('H/5 * * * *')
   }
+  
   environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-    IMAGE_NAME_CLIENT = 'aymen023/mern-client'
-    IMAGE_NAME_SERVER = 'aymen023/mern-server'
+   IMAGE_NAME_SERVER = 'aymen023/mern-server'
+   IMAGE_NAME_CLIENT = 'aymen023/mern-client'
   }
   stages {
     stage('Checkout') {
@@ -21,7 +22,7 @@ pipeline {
           script {
             dockerImageServer = docker.build("${IMAGE_NAME_SERVER}")
           }
-        }
+        }a
       }
     }
     stage('Build Client Image') {
@@ -71,8 +72,7 @@ pipeline {
   post {
     always {
       script {
-        // Access environment variables explicitly
-        sh "docker rmi ${env.IMAGE_NAME_SERVER} ${env.IMAGE_NAME_CLIENT}"
+        sh "docker rmi ${IMAGE_NAME_SERVER} ${IMAGE_NAME_CLIENT}"
       }
     }
   }
